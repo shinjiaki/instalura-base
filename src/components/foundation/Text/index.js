@@ -1,6 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+/* eslint-disable object-curly-newline */
+/* eslint-disable react/default-props-match-prop-types */
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled, { css } from 'styled-components';
 import { propToStyle } from '../../../theme/utils/propToStyle';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
 
@@ -22,19 +26,19 @@ export const TextStyleVariantsMap = {
       line-height: ${theme.typographyVariants.titleXS.lineHeight};
     `}
     ${breakpointsMedia({
-      md: css`
-        ${({ theme }) => css`
-          font-size: ${theme.typographyVariants.title.fontSize};
-          font-weight: ${theme.typographyVariants.title.fontWeight};
-          line-height: ${theme.typographyVariants.title.lineHeight};
-        `}
-      `,
-    })}
+    md: css`
+      ${({ theme }) => css`
+        font-size: ${theme.typographyVariants.title.fontSize};
+        font-weight: ${theme.typographyVariants.title.fontWeight};
+        line-height: ${theme.typographyVariants.title.lineHeight};
+      `}
+    `,
+  })}
   `,
-}
+};
 
 const TextBase = styled.span`
-  ${(props) => TextStyleVariantsMap[props.variant] }
+  ${(props) => TextStyleVariantsMap[props.variant]}
   ${propToStyle('textAlign')}
 `;
 
@@ -47,16 +51,16 @@ export default function Text({ tag, variant, children, ...props }) {
     >
       {children}
     </TextBase>
-  )
+  );
 }
 
 Text.propTypes = {
   tag: PropTypes.string.isRequired,
   variant: PropTypes.oneOf(['title', 'paragraph1', 'smallestException']),
   children: PropTypes.node.isRequired,
-}
+};
 
 Text.defaultProps = {
   tag: 'span',
   variant: 'paragraph1',
-}
+};
